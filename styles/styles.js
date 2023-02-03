@@ -9,12 +9,15 @@ export default StyleSheet.create({
         height: 208,
         width: 50,
         flexDirection: "column",
-        display: "flex"
+        display: "flex",
+        borderRadius: 5
     },
     blackPianoTile: {
         backgroundColor: '#000',
         height: 128,
-        elevation: 1
+        width: BLACK_TILE_WIDTH,
+        elevation: 1,
+        borderRadius: 3
     },
     padTrack: {
         flexDirection: "row"
