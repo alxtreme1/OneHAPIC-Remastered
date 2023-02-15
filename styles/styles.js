@@ -8,18 +8,20 @@ export default StyleSheet.create({
         borderWidth: 0.4,
         height: 208,
         width: 50,
-        borderBottomLeftRadius: 5,
-        borderBottomRightRadius: 5,
+        // borderBottomLeftRadius: 5,
+        // borderBottomRightRadius: 5,
         zIndex: 1
     },
     blackPianoTile: {
         backgroundColor: '#000',
         height: 128,
         width: BLACK_TILE_WIDTH,
-        zIndex: 3,
-        borderRadius: 3
+        borderBottomLeftRadius: 3,
+        borderBottomRightRadius: 3,
+        zIndex: 2
     },
     padTrack: {
+        backgroundColor: '#63353F',
         flexDirection: "row"
     }
 })

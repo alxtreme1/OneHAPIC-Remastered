@@ -8,7 +8,7 @@ import MIDISounds from 'midi-sounds-react';
 
 export default function OneHAPIC(){
   return(
-    <View style={{justifyContent: 'flex-end', height: '100%', backgroundColor: 'grey'}}>
+    <View style={{justifyContent: 'flex-end', height: '100%', backgroundColor: '#63353F'}}>
       <PianoRoll/>
     </View>
   );
