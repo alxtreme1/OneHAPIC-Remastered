@@ -10,7 +10,8 @@ export default StyleSheet.create({
         width: 50,
         flexDirection: "column",
         display: "flex",
-        borderRadius: 5
+        borderBottomLeftRadius: 5,
+        borderBottomRightRadius: 5
     },
     blackPianoTile: {
         backgroundColor: '#000',
