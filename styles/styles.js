@@ -5,7 +5,7 @@ export const BLACK_TILE_WIDTH = 30;
 export default StyleSheet.create({
     whitePianoTile: {
         backgroundColor: '#fff',
-        borderWidth: 1,
+        borderWidth: 0.4,
         height: 208,
         width: 50,
         flexDirection: "column",
