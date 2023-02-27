@@ -7,7 +7,7 @@ import PadTrack from './pad-track';
 
 export default function() {
     return(
-        <View style={{display: 'flex', flexDirection:'row'}}>
+        <View style={{display: 'flex', flexDirection:'row', alignItems: 'flex-end'}}>
             <PadTrack/>
             <PadTrack/>
             <PadTrack/>
