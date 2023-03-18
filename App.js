@@ -20,6 +20,7 @@ const styles = StyleSheet.create({
 });
 
 export default function OneHAPIC(){
+  
   return(
     <View style={styles.container}>
       <Slider/>
