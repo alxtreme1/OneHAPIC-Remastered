@@ -3,7 +3,6 @@ import {
     StyleSheet,
     View
 } from 'react-native';
-// import styles from '../styles/styles';
 import WhiteTile from './white-tile';
 import BlackTile from './black-tile';
 

@@ -10,7 +10,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     borderWidth: 0.4,
     height: '100%',
-    width: 50 * resize,
+    width: 60 * resize,
     borderBottomLeftRadius: 5,
     borderBottomRightRadius: 5,
     zIndex: 1

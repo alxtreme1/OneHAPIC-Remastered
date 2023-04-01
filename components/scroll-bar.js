@@ -16,21 +16,15 @@ const CustomThumb = () => (
 
 const styles = StyleSheet.create({
     sliderContainer: {
-        paddingVertical: 16,
-        // alignItems: 'stretch',
-        // justifyContent: 'flex-start',
-        // flex: 1,
-        // height: '10%',
-        // backgroundColor: 'yellow'
-        // flexGrow: 1,
+        flex: 0.2,
+        justifyContent: 'center'
     },
     slider: {
-        // backgroundColor: 'yellow',
-        // justifyContent: 'flex-start',
+        height: '100%',
     },
     track: {
         borderRadius: 2,
-        height: 40,
+        height: '100%',
     },
     thumbContainer: {
         alignItems: 'center',
@@ -38,6 +32,7 @@ const styles = StyleSheet.create({
         height: 50,
         justifyContent: 'center',
         width: 100,
+        borderRadius: 5,
     }
 });
 
@@ -47,8 +42,10 @@ export default class SliderExample extends React.Component {
     };
     render() {
         return(
-            <View contentCountainerStyle={styles.sliderContainer}>
+            <View 
+                style={styles.sliderContainer}>
                 <Slider 
+                    // trackMarks={[0.2]}
                     style={styles.slider}
                     value={this.state.value}
                     onValueChange={value => this.setState({value})}

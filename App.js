@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {
   StyleSheet,
   ScrollView,
@@ -13,14 +13,13 @@ const styles = StyleSheet.create({
   container: {
     display: 'flex',
     flexDirection: 'column',
-    // backgroundColor: 'red',
     justifyContent: 'flex-end',
     flexGrow: 1
   }
 });
 
 export default function OneHAPIC(){
-  
+
   return(
     <View style={styles.container}>
       <Slider/>

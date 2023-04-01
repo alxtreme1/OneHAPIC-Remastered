@@ -11,14 +11,18 @@ const styles = StyleSheet.create({
         flexDirection:'row',
     },
     container: {
-        flexGrow: 1,
-        // height: '88%'
+        // height: '85%'
+        flex: 1
     }
 });
 
 export default function() {
     return(
-        <ScrollView contentContainerStyle={styles.container} horizontal={true}> 
+        <ScrollView
+            style={styles.container} 
+            horizontal={true}
+            // scrollEnabled={false}
+            > 
             <View style={styles.pianoRoll}>
                 <PadTrack/>
                 <PadTrack/>
