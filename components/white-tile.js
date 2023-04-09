@@ -1,8 +1,21 @@
 import React from 'react';
 import {
-  View
+  View,
+  StyleSheet
 } from 'react-native';
-import styles from '../styles/styles';
+import resize from './consts';
+
+const styles = StyleSheet.create({
+  whitePianoTile: {
+    backgroundColor: '#fff',
+    borderWidth: 0.4,
+    height: '100%',
+    width: 60 * resize,
+    borderBottomLeftRadius: 5,
+    borderBottomRightRadius: 5,
+    zIndex: 1
+  }
+});
 
 export default function() {
     return(

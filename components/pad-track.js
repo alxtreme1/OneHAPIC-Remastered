@@ -1,10 +1,17 @@
 import React from 'react';
 import {
-  View
+    StyleSheet,
+    View
 } from 'react-native';
-import styles from '../styles/styles';
 import WhiteTile from './white-tile';
 import BlackTile from './black-tile';
+
+const styles = StyleSheet.create({
+    padTrack: {
+        flexDirection: "row",
+        height: '100%'
+    }
+});
 
 export default function() {
     return(

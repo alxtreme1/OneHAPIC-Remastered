@@ -1,18 +1,35 @@
 import React from 'react';
 import {
-  View
+    StyleSheet,
+    View,
+    ScrollView
 } from 'react-native';
-import styles from '../styles/styles';
 import PadTrack from './pad-track';
+
+const styles = StyleSheet.create({
+    pianoRoll: {
+        flexDirection:'row',
+    },
+    container: {
+        // height: '85%'
+        flex: 1
+    }
+});
 
 export default function() {
     return(
-        <View style={{display: 'flex', flexDirection:'row', alignItems: 'flex-end'}}>
-            <PadTrack/>
-            <PadTrack/>
-            <PadTrack/>
-            <PadTrack/>
-            <PadTrack/>
-        </View>
+        <ScrollView
+            style={styles.container} 
+            horizontal={true}
+            // scrollEnabled={false}
+            > 
+            <View style={styles.pianoRoll}>
+                <PadTrack/>
+                <PadTrack/>
+                <PadTrack/>
+                <PadTrack/>
+                <PadTrack/>
+            </View>
+        </ScrollView>
     );
 }
