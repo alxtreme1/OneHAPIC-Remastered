@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React, {useContext, useState} from 'react';
 import {
   StyleSheet,
   ScrollView,
@@ -8,6 +8,7 @@ import {
 import PianoRoll from './components/piano-roll';
 import MIDISounds from 'midi-sounds-react';
 import Slider from './components/scroll-bar';
+import { CameraTargetContextProvider } from './context/piano-track-context';
 
 const styles = StyleSheet.create({
   container: {
@@ -21,9 +22,11 @@ const styles = StyleSheet.create({
 export default function OneHAPIC(){
 
   return(
-    <View style={styles.container}>
-      <Slider/>
-      <PianoRoll/>
-    </View>
+    <CameraTargetContextProvider>
+      <View style={styles.container}>
+        <Slider/>
+        <PianoRoll/>
+      </View>
+    </CameraTargetContextProvider>
   );
 }
