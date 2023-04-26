@@ -50,7 +50,7 @@ export default function() {
             onLayout={
                 useEffect(() => {
                     setCameraTarget(sliderValue*pianoWidth);
-                    scrollRef.current.scrollTo({x: cameraTarget, animated: false});
+                    scrollRef.current.scrollTo({x: sliderValue*pianoWidth, animated: false});
                     // setCameraTarget(cameraTarget+1);
                 }, [sliderValue])
             }> 
