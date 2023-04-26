@@ -5,7 +5,7 @@ export const CameraTargetContext = createContext();
 export function CameraTargetContextProvider({children}) {
     const [cameraTarget, setCameraTarget] = useState(0);
     const [sliderWidth, setSliderWidth] = useState(0);
-    const [sliderValue, setSliderValue] = useState(0);
+    const [sliderValue, setSliderValue] = useState(0.4);
     const [pianoWidth, setPianoWidth] = useState(0);
     const [thumbWidth, setThumbWidth] = useState(0);
     const [maximumValue, setMaximumValue] = useState(0.8);

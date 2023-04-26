@@ -1,11 +1,17 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Slider } from "@miblanchard/react-native-slider";
 import { StyleSheet, AppRegistry, View, Text, Dimensions } from "react-native";
-// import { styles } from "../styles/slider";
 import { CameraTargetContext } from '../context/piano-track-context';
 
 export default function SliderExample() {
     const {thumbWidth} = useContext(CameraTargetContext);
+    const {pianoWidth} = useContext(CameraTargetContext);
+    const {sliderWidth, setSliderWidth} = useContext(CameraTargetContext);
+    const {sliderValue, setSliderValue} = useContext(CameraTargetContext);
+    const {maximumValue} = useContext(CameraTargetContext);
+
+    const trackMarks = [maximumValue/4, 2*maximumValue/4, 3*maximumValue/4, 4* maximumValue/4];
+    const touchThumbSize = {width: thumbWidth, height: 40};
 
     const styles = StyleSheet.create({
         sliderContainer: {
@@ -49,21 +55,19 @@ export default function SliderExample() {
         </View>
     );
 
-    const CustomTrackMark = () => (
-        <View style={styles.trackMarkContainer}/>
+    
+    const offsettingTrackMarks = (pos) => {
+        trackOffset = (sliderWidth - thumbWidth) / 4 + thumbWidth / 5;
+
+        if(sliderWidth / 5 >= trackOffset)
+            return {left: -2 + (pos + 1) * (sliderWidth / 5 - thumbWidth) / 4};
+        return {left: -2 + (4 - pos) * (sliderWidth / 5 - thumbWidth) / 4};
+    };
+
+    const CustomTrackMark = (pos) => (
+        <View style={[styles.trackMarkContainer, offsettingTrackMarks(pos)]}/>
     );
 
-
-    const touchThumbSize = {width: thumbWidth, height: 40};
-
-    const {setSliderWidth} = useContext(CameraTargetContext);
-    const {sliderValue, setSliderValue} = useContext(CameraTargetContext);
-    const {maximumValue} = useContext(CameraTargetContext);
-    const trackMarks = [maximumValue/4, 2*maximumValue/4, 3*maximumValue/4, 4* maximumValue/4];
-
-    startingWidthValue = ({nativeEvent}) => {
-        setSliderWidth(nativeEvent.layout.width);
-    };
 
     return(
         <View 
@@ -80,10 +84,6 @@ export default function SliderExample() {
                 maximumValue={maximumValue} minimumValue={0}
                 thumbTouchSize={touchThumbSize}
             />
-            {/* <Text>Value: {cameraTarget}</Text> */}
-            {/* <Text>Value: {pianoWidth}</Text> */}
-            {/* <Text>Value: {sliderValue}</Text> */}
-            {/* <Text>Value: {thumbWidth}</Text> */}
         </View>
     );
 }
