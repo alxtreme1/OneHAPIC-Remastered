@@ -2,7 +2,8 @@ import React, { useRef, useContext, useEffect } from 'react';
 import {
     StyleSheet,
     View,
-    ScrollView
+    ScrollView,
+    Dimensions
 } from 'react-native';
 import PadTrack from './pad-track';
 import { CameraTargetContext } from '../context/piano-track-context';
@@ -21,6 +22,8 @@ export default function() {
     const {sliderValue} = useContext(CameraTargetContext);
     const {cameraTarget, setCameraTarget} = useContext(CameraTargetContext);
     const {pianoWidth, setPianoWidth} = useContext(CameraTargetContext);
+    const {sliderWidth} = useContext(CameraTargetContext);
+    const {thumbWidth, setThumbWidth} = useContext(CameraTargetContext);
     const scrollRef = useRef();
 
     const moveCameraTo = () => {
@@ -31,11 +34,11 @@ export default function() {
     }
 
     const pianoWidthSetter = ({nativeEvent}) => {
+        let windowWidth = Dimensions.get('window').width;
+        let screenPianoProportion = windowWidth / nativeEvent.layout.width;
+
         setPianoWidth(nativeEvent.layout.width);
-        // useEffect(() => {
-        //     scrollRef.current.scrollTo({x: cameraTarget});
-        //     setCameraTarget(cameraTarget+1);
-        // }, [sliderValue])
+        setThumbWidth(screenPianoProportion * sliderWidth);
     };
 
     return(
@@ -44,14 +47,11 @@ export default function() {
             style={styles.container} 
             horizontal={true}
             scrollEnabled={false}
-            // scrollTo={{x: sliderValue}}
             // set piano width, and update real time the camera position
-            // onLayout={pianoWidthSetter}
             onLayout={
                 useEffect(() => {
                     setCameraTarget(sliderValue*pianoWidth);
                     scrollRef.current.scrollTo({x: sliderValue*pianoWidth, animated: false});
-                    // setCameraTarget(cameraTarget+1);
                 }, [sliderValue])
             }> 
             <View style={styles.pianoRoll}
