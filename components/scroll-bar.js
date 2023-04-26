@@ -31,19 +31,19 @@ export default function SliderExample() {
             justifyContent: 'center',
             width: thumbWidth,
             borderRadius: 3.7,
-            borderColor: 'black',
-            borderWidth: 3.2,
+            borderColor: '#023020',
+            borderWidth: 2.2,
         },
         trackMarkContainer: {
-            backgroundColor: 'green',
+            backgroundColor: '#FFBF00',
             borderWidth: 2.3,
-            borderColor: 'green',
+            borderColor: '#FFBF00',
             height: 40,
             left: -2
         },
         thumbGrass: {
             opacity: 0.73,
-            backgroundColor: 'red',
+            backgroundColor: '#228B22',
             width: '100%',
             height: '100%'
         }
@@ -83,7 +83,9 @@ export default function SliderExample() {
                 renderThumbComponent={CustomThumb}
                 maximumValue={maximumValue} minimumValue={0}
                 thumbTouchSize={touchThumbSize}
+                maximumTrackTintColor='#A9A9A9'
+                minimumTrackTintColor='#A9A9A9'
             />
         </View>
     );
-}
+}   
