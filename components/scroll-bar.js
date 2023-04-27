@@ -58,7 +58,6 @@ export default function SliderExample() {
     
     const offsettingTrackMarks = (pos) => {
         octaveSliderWidth = (sliderWidth - thumbWidth) / 4;
-        console.log("Octave: " + octaveSliderWidth + "\tThumb Size: " + thumbWidth)
         difference = thumbWidth - octaveSliderWidth;
         if(thumbWidth >= octaveSliderWidth)
             return {left: -2 + (pos + 1) * difference / 5};
