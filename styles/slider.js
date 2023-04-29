@@ -2,11 +2,6 @@ import { StyleSheet } from "react-native";
 import { useContext } from "react";
 import { CameraTargetContext } from "../context/piano-track-context";
 
-// function getThumbWidth() {
-//     const {thumbWidth} = useContext(CameraTargetContext);
-//     return thumbWidth;
-// }
-
 const styles = StyleSheet.create({
     sliderContainer: {
         flex: 0.2,
