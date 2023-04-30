@@ -24,6 +24,7 @@ export default function() {
     const {pianoWidth, setPianoWidth} = useContext(CameraTargetContext);
     const {sliderWidth} = useContext(CameraTargetContext);
     const {thumbWidth, setThumbWidth} = useContext(CameraTargetContext);
+    const {setMaximumValue} = useContext(CameraTargetContext);
     const scrollRef = useRef();
 
     const moveCameraTo = () => {
@@ -36,7 +37,7 @@ export default function() {
     const pianoWidthSetter = ({nativeEvent}) => {
         let windowWidth = Dimensions.get('window').width;
         let screenPianoProportion = windowWidth / nativeEvent.layout.width;
-
+        setMaximumValue(1-screenPianoProportion);
         setPianoWidth(nativeEvent.layout.width);
         setThumbWidth(screenPianoProportion * sliderWidth);
     };

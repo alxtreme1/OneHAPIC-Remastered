@@ -8,7 +8,7 @@ export function CameraTargetContextProvider({children}) {
     const [sliderValue, setSliderValue] = useState(0.4);
     const [pianoWidth, setPianoWidth] = useState(0);
     const [thumbWidth, setThumbWidth] = useState(0);
-    const [maximumValue, setMaximumValue] = useState(0.8);
+    const [maximumValue, setMaximumValue] = useState(1);
     const pianoTrack = useRef();
 
     return(
