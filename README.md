@@ -14,7 +14,7 @@ After entered the android folder, to get an APK use the following command
 ```
 To get a bundle file:
 ```bash
-./gradew assembleBundle
+./gradew bundleRelease
 ```
 
 The apk is located on 
