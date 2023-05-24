@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import {
   View,
+  TouchableOpacity,
   StyleSheet
 } from 'react-native';
 import resize from './consts';
+import SoundPlayer from './audio-player';
 
 const styles = StyleSheet.create({
   whitePianoTile: {
@@ -17,8 +19,22 @@ const styles = StyleSheet.create({
   }
 });
 
-export default function() {
-    return(
-        <View style={styles.whitePianoTile}></View>
-    );
+
+
+export default function(props) {
+  const soundFile = props.keyNote + props.fileExtension;
+
+  const soundPlayer = new SoundPlayer({ audioPath: soundFile });
+
+  const handlePlay = () => {
+    soundPlayer.playAudio();
+  };
+
+  const handleStop = () => {
+    soundPlayer.stopAudio();
+  };
+
+  return(
+    <View style={styles.whitePianoTile} onTouchStart={ handlePlay } onTouchEnd={ handleStop } />
+  );
 }

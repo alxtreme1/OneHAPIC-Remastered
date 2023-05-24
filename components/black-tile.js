@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import {
   StyleSheet,
+  TouchableOpacity,
   View
 } from 'react-native';
 // import styles from '../styles/styles';
 import { BLACK_TILE_WIDTH } from './consts';
+import SoundPlayer from './audio-player';
 
 const styles = StyleSheet.create({
   blackPianoTile: {
@@ -17,8 +19,8 @@ const styles = StyleSheet.create({
   }
 });
 
-export default function(prop) {
-  let marginOffset = BLACK_TILE_WIDTH * (prop.marginOffset / 100);
+export default function(props) {
+  let marginOffset = BLACK_TILE_WIDTH * (props.marginOffset / 100);
 
   const personalizedMarge = StyleSheet.create({
     blackPianoTile: {
@@ -26,10 +28,22 @@ export default function(prop) {
       marginRight: - (BLACK_TILE_WIDTH/2) - marginOffset
     }
   });
-  
-  const personalizedTile = StyleSheet.compose(styles.blackPianoTile, personalizedMarge.blackPianoTile);
 
-    return(
-        <View style={personalizedTile}></View>
-    );
+  const personalizedTile = StyleSheet.compose(styles.blackPianoTile, personalizedMarge.blackPianoTile);
+  
+  const soundFile = props.keyNote + props.fileExtension;
+
+  const soundPlayer = new SoundPlayer({ audioPath: soundFile });
+
+  const handlePlay = () => {
+    soundPlayer.playAudio();
+  };
+
+  const handleStop = () => {  
+    soundPlayer.stopAudio();
+  };
+
+  return(
+    <View style={personalizedTile} onTouchStart={ handlePlay } onTouchEnd={ handleStop } />
+  );
 }

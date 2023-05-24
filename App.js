@@ -6,7 +6,6 @@ import {
   View
 } from 'react-native';
 import PianoRoll from './components/piano-roll';
-import MIDISounds from 'midi-sounds-react';
 import Slider from './components/scroll-bar';
 import { CameraTargetContextProvider } from './context/piano-track-context';
 

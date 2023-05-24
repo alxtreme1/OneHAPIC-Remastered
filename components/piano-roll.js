@@ -57,11 +57,11 @@ export default function() {
             }> 
             <View style={styles.pianoRoll}
                 onLayout={pianoWidthSetter}>
-                <PadTrack/>
-                <PadTrack/>
-                <PadTrack/>
-                <PadTrack/>
-                <PadTrack/>
+                <PadTrack pad={1}/>
+                <PadTrack pad={2}/>
+                <PadTrack pad={3}/>
+                <PadTrack pad={4}/>
+                <PadTrack pad={5}/>
             </View>
         </ScrollView>
     );
