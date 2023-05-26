@@ -21,7 +21,9 @@ const SoundPlayer = ({ audioPath }) => {
 
   const playAudio = () => {
     // loadAudio(); // Load the audio before playing
+    clearInterval(fadeOutTimer);
     audioPlayerRef.current = new Player(audioPath);
+    audioPlayerRef.current.volume = 1;
 
     if (audioPlayerRef.current) {
       audioPlayerRef.current.play((err) => {
@@ -36,10 +38,33 @@ const SoundPlayer = ({ audioPath }) => {
 
   const stopAudio = () => {
     if (audioPlayerRef.current) {
-      audioPlayerRef.current.stop();
-      audioPlayerRef.current = null;
+      fadeOut();
       console.log('Áudio parado.');
     }
+  };
+
+  let fadeOutTimer;
+
+  const fadeOut = () => {
+    const fadeOutDuration = 1200;
+    const fadeOutInterval = 100;
+  
+    const initialVolume = audioPlayerRef.current.volume;
+    const volumeSteps = Math.floor(fadeOutDuration / fadeOutInterval);
+    const volumeStep = initialVolume / volumeSteps;
+  
+    let currentVolume = initialVolume;
+  
+    fadeOutTimer = setInterval(() => {
+      currentVolume -= volumeStep;
+      if(audioPlayerRef.current)
+        audioPlayerRef.current.volume = currentVolume;
+  
+      if (currentVolume <= 0) {
+        clearInterval(fadeOutTimer);
+        audioPlayerRef.current.stop();
+      }
+    }, fadeOutInterval);
   };
 
   return { playAudio, stopAudio };
